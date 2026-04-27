@@ -29,7 +29,7 @@ func (t *Training) Parse(dataString string) (err error) {
 	}
 
 	// getting the number of steps int
-	steps, err := strconv.Atoi(strings.TrimSpace(parseData[0]))
+	steps, err := strconv.Atoi(parseData[0])
 	if err != nil {
 		return err
 	}
@@ -39,14 +39,14 @@ func (t *Training) Parse(dataString string) (err error) {
 	t.Steps = steps
 
 	// getting the type of train string
-	trainType := strings.TrimSpace(parseData[1])
+	trainType := parseData[1]
 	if trainType == "" {
 		return errors.New("workout type not specified")
 	}
 	t.TrainingType = trainType
 
 	// getting duration of train time.Duration
-	duration, err := time.ParseDuration(strings.TrimSpace(parseData[2]))
+	duration, err := time.ParseDuration(parseData[2])
 	if err != nil {
 		return err
 	}

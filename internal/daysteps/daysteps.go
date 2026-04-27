@@ -28,7 +28,7 @@ func (ds *DaySteps) Parse(dataString string) (err error) {
 	}
 
 	// getting the number of steps int
-	steps, err := strconv.Atoi(strings.TrimSpace(parseData[0]))
+	steps, err := strconv.Atoi(parseData[0])
 	if err != nil {
 		return err
 	}
@@ -38,7 +38,7 @@ func (ds *DaySteps) Parse(dataString string) (err error) {
 	ds.Steps = steps
 
 	// getting duration time.Duration
-	duration, err := time.ParseDuration(strings.TrimSpace(parseData[1]))
+	duration, err := time.ParseDuration(parseData[1])
 	if err != nil {
 		return err
 	}
